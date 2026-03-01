@@ -1,5 +1,7 @@
 package com.example.hospitalmonolitik.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -14,7 +16,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 
 @Entity
 @Table(name = "pacienti")
@@ -43,4 +44,9 @@ public class Pacienti {
     @OneToMany(mappedBy = "pacienti")
     @JsonIgnore
     private List<Takimi> takimet;
+
+    @OneToMany(mappedBy = "pacienti")
+    @JsonIgnore
+    private List<Diagnoza> diagnozat;
+
 }
